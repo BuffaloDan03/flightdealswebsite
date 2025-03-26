@@ -1,0 +1,163 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                Int                 @id @default(autoincrement())
+  email             String              @unique
+  passwordHash      String
+  firstName         String?
+  lastName          String?
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  lastLogin         DateTime?
+  emailVerified     Boolean             @default(false)
+  verificationToken String?
+  resetToken        String?
+  resetTokenExpires DateTime?
+  subscription      Subscription?
+  preferences       UserPreference?
+  trackedDestinations TrackedDestination[]
+  notifications     Notification[]
+}
+
+model Subscription {
+  id                  Int       @id @default(autoincrement())
+  userId              Int       @unique
+  user                User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  planType            String    // 'free', 'premium', 'premium_plus'
+  status              String    // 'active', 'canceled', 'past_due', 'trialing'
+  stripeCustomerId    String?
+  stripeSubscriptionId String?
+  currentPeriodStart  DateTime?
+  currentPeriodEnd    DateTime?
+  cancelAtPeriodEnd   Boolean   @default(false)
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+model UserPreference {
+  id                   Int       @id @default(autoincrement())
+  userId               Int       @unique
+  user                 User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  originAirports       Json?     // Array of airport codes
+  destinationPreference String    @default("all") // 'all' or 'specific'
+  specificDestinations  Json?     // Array of destination codes
+  airlinePreference     String    @default("all") // 'all', 'specific', or 'exclude'
+  airlines              Json?     // Array of airline codes
+  travelClass           String    @default("economy") // 'economy' or 'premium'
+  premiumEconomy        Boolean   @default(false)
+  business              Boolean   @default(false)
+  first                 Boolean   @default(false)
+  minDiscount           Int       @default(20) // Minimum discount percentage
+  notificationFrequency String    @default("daily") // 'real-time', 'daily', 'weekly'
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+}
+
+model Airport {
+  code        String         @id
+  name        String
+  city        String
+  country     String
+  latitude    Float?
+  longitude   Float?
+  timezone    String?
+  popular     Boolean        @default(false)
+  originFlights      Flight[]       @relation("FlightOrigin")
+  destinationFlights Flight[]       @relation("FlightDestination")
+  priceHistoryOrigin      PriceHistory[] @relation("PriceHistoryOrigin")
+  priceHistoryDestination PriceHistory[] @relation("PriceHistoryDestination")
+  trackedDestinations     TrackedDestination[]
+}
+
+model Airline {
+  code      String    @id
+  name      String
+  logoUrl   String?
+  country   String?
+  active    Boolean   @default(true)
+  flights   Flight[]
+  priceHistory PriceHistory[]
+}
+
+model Flight {
+  id           Int       @id @default(autoincrement())
+  origin       String
+  originAirport Airport   @relation("FlightOrigin", fields: [origin], references: [code])
+  destination  String
+  destinationAirport Airport @relation("FlightDestination", fields: [destination], references: [code])
+  airline      String
+  airlineInfo  Airline   @relation(fields: [airline], references: [code])
+  flightNumber String?
+  departureTime DateTime
+  arrivalTime   DateTime
+  duration      Int       // in minutes
+  cabinClass    String    // 'economy', 'premium_economy', 'business', 'first'
+  price         Float
+  currency      String    @default("USD")
+  source        String    // 'skyscanner', 'google_flights', 'airline_direct'
+  sourceUrl     String?
+  createdAt     DateTime  @default(now())
+  deal          Deal?
+}
+
+model Deal {
+  id                 Int           @id @default(autoincrement())
+  flightId           Int           @unique
+  flight             Flight        @relation(fields: [flightId], references: [id])
+  regularPrice       Float         // Historical average price
+  discountPercentage Int
+  dealQuality        String        // 'good', 'great', 'amazing'
+  expiresAt          DateTime?
+  featured           Boolean       @default(false)
+  createdAt          DateTime      @default(now())
+  notifications      Notification[]
+}
+
+model PriceHistory {
+  id          Int       @id @default(autoincrement())
+  origin      String
+  originAirport Airport   @relation("PriceHistoryOrigin", fields: [origin], references: [code])
+  destination String
+  destinationAirport Airport @relation("PriceHistoryDestination", fields: [destination], references: [code])
+  airline     String
+  airlineInfo Airline   @relation(fields: [airline], references: [code])
+  cabinClass  String
+  price       Float
+  currency    String    @default("USD")
+  date        DateTime  @default(now())
+  createdAt   DateTime  @default(now())
+}
+
+model TrackedDestination {
+  id          Int       @id @default(autoincrement())
+  userId      Int
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  destination String
+  airport     Airport   @relation(fields: [destination], references: [code])
+  createdAt   DateTime  @default(now())
+
+  @@unique([userId, destination])
+}
+
+model Notification {
+  id        Int       @id @default(autoincrement())
+  userId    Int
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dealId    Int
+  deal      Deal      @relation(fields: [dealId], references: [id])
+  status    String    // 'pending', 'sent', 'failed'
+  sentAt    DateTime?
+  openedAt  DateTime?
+  clickedAt DateTime?
+  createdAt DateTime  @default(now())
+}

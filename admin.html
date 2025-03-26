@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Deals Admin Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Flight Deals Admin</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-section="dashboard">Dashboard</a></li>
+                    <li><a href="#" class="nav-link" data-section="deals">Deals</a></li>
+                    <li><a href="#" class="nav-link" data-section="users">Users</a></li>
+                    <li><a href="#" class="nav-link" data-section="content">Content</a></li>
+                    <li><a href="#" class="nav-link" data-section="settings">Settings</a></li>
+                    <li><a href="index.html" class="btn btn-secondary">View Site</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="admin-section active">
+                <h2>Dashboard Overview</h2>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3>Total Users</h3>
+                        <p class="stat-number">1,245</p>
+                        <p class="stat-change positive">+12% this month</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Premium Subscribers</h3>
+                        <p class="stat-number">328</p>
+                        <p class="stat-change positive">+8% this month</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Active Deals</h3>
+                        <p class="stat-number">47</p>
+                        <p class="stat-change negative">-3% this week</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Newsletter Opens</h3>
+                        <p class="stat-number">68%</p>
+                        <p class="stat-change positive">+5% this week</p>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Event</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mar 21, 2025</td>
+                                <td>New Deal Added</td>
+                                <td>NYC to Paris - $399</td>
+                            </tr>
+                            <tr>
+                                <td>Mar 20, 2025</td>
+                                <td>New Subscriber</td>
+                                <td>Premium Plan - john.doe@example.com</td>
+                            </tr>
+                            <tr>
+                                <td>Mar 20, 2025</td>
+                                <td>Newsletter Sent</td>
+                                <td>Weekly Deals - 1,203 recipients</td>
+                            </tr>
+                            <tr>
+                                <td>Mar 19, 2025</td>
+                                <td>Content Updated</td>
+                                <td>Homepage hero section</td>
+                            </tr>
+                            <tr>
+                                <td>Mar 18, 2025</td>
+                                <td>New Deal Added</td>
+                                <td>Chicago to Tokyo - $799</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Deals Section -->
+            <section id="deals" class="admin-section">
+                <h2>Manage Deals</h2>
+                <div class="admin-actions">
+                    <button class="btn btn-primary" id="add-deal-btn">Add New Deal</button>
+                    <button class="btn btn-secondary" id="run-scraper-btn">Run Scraper</button>
+                    <div class="search-container">
+                        <input type="text" placeholder="Search deals..." id="deal-search">
+                        <button class="btn btn-secondary">Search</button>
+                    </div>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Origin</th>
+                            <th>Destination</th>
+                            <th>Price</th>
+                            <th>Discount</th>
+                            <th>Airline</th>
+                            <th>Expires</th>
+                            <th>Featured</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>NYC</td>
+                            <td>Paris</td>
+                            <td>$399</td>
+                            <td>35%</td>
+                            <td>Delta</td>
+                            <td>Mar 28, 2025</td>
+                            <td><input type="checkbox" checked></td>
+                            <td>
+                                <button class="btn btn-small btn-secondary">Edit</button>
+                                <button class="btn btn-small btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>LAX</td>
+                            <td>Tokyo</td>
+                            <td>$799</td>
+                            <td>25%</td>
+                            <td>ANA</td>
+                            <td>Mar 30, 2025</td>
+                            <td><input type="checkbox" checked></td>
+                            <td>
+                                <button class="btn btn-small btn-secondary">Edit</button>
+                                <button class="btn btn-small btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>CHI</td>
+                            <td>London</td>
+                            <td>$549</td>
+                            <td>20%</td>
+                            <td>British Airways</td>
+                            <td>Apr 5, 2025</td>
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <button class="btn btn-small btn-secondary">Edit</button>
+                                <button class="btn btn-small btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>SFO</td>
+                            <td>Sydney</td>
+                            <td>$1,099</td>
+                            <td>30%</td>
+                            <td>Qantas</td>
+                            <td>Apr 10, 2025</td>
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <button class="btn btn-small btn-secondary">Edit</button>
+                                <button class="btn btn-small btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>MIA</td>
+                            <td>Madrid</td>
+                            <td>$479</td>
+                            <td>40%</td>
+                            <td>Iberia</td>
+                            <td>Apr 15, 2025</td>
+                            <td><input type="checkbox" checked></td>
+                            <td>
+                                <button class="btn btn-small btn-secondary">Edit</button>
+                                <button class="btn btn-small btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Deal Form Modal (hidden by default) -->
+                <div id="deal-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>Add/Edit Deal</h3>
+                        <form id="deal-form">
+                            <div class="form-group">
+                                <label for="origin">Origin Airport:</label>
+                                <input type="text" id="origin" name="origin" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="destination">Destination Airport:</label>
+                                <input type="text" id="destination" name="destination" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Current Price:</label>
+                                <input type="number" id="price" name="price" min="1" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="original-price">Original Price:</label>
+                                <input type="number" id="original-price" name="original-price" min="1" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="airline">Airline:</label>
+                                <select id="airline" name="airline" required>
+                                    <option value="">Select Airline</option>
+                                    <option value="delta">Delta</option>
+                                    <option value="american">American Airlines</option>
+                                    <option value="united">United</option>
+                                    <option value="southwest">Southwest</option>
+                                    <option value="jetblue">JetBlue</option>
+                                    <option value="british">British Airways</option>
+                                    <option value="lufthansa">Lufthansa</option>
+                                    <option value="air-france">Air France</option>
+                                    <option value="emirates">Emirates</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="departure-date">Departure Date:</label>
+                                <input type="date" id="departure-date" name="departure-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="return-date">Return Date:</label>
+                                <input type="date" id="return-date" name="return-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="expiry-date">Deal Expiry Date:</label>
+                                <input type="date" id="expiry-date" name="expiry-date" required>
+                            </div>
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="featured" name="featured">
+                                <label for="featured">Featured Deal</label>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save Deal</button>
+                                <button type="button" class="btn btn-secondary" id="cancel-deal">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Users Section -->
+            <section id="users" class="admin-section">
+                <h2>Manage Users</h2>
+                <div class="admin-actions">
+                    <button class="btn btn-primary" id="add-user-btn">Add New User</button>
+                    <div class="search-container">
+                        <input type="text" placeholder="Search users..." id="user-search">
+                        <button class="btn btn-secondary">Search</button>
+                    </div>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Subscription</th>
+                            <th>Status</th>
+                            <th>Joined</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>John Doe</td>
+                            <td>john.doe@example.com</td>
+                            <td>Premium</td>
+                            <td>Active</td>
+                            <td>Jan 15, 2025</td>
+                            <td>
+                                <button class="btn btn-small btn-secondary">Edit</button>
+                                <button class="btn btn-small btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jane Smith</td>
+                            <td>jane.smith@example.com</td>
+                            <td>Premium+</td>
+                            <td>Active</td>
+                            <td>Feb 3, 2025</td>
+                            <td>
+                                <button class="btn btn-small btn-secondary">Edit</button>
+                                <button class="btn btn-small btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Bob Johnson</td>
+                            <td>bob.johnson@example.com</td>
+                            <td>Free</td>
+                            <td>Active</td>
+                            <td>Feb 20, 2025</td>
+                            <td>
+                                <button class="btn btn-small btn-secondary">Edit</button>
+                                <button class="btn btn-small btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Sarah Williams</td>
+                            <td>sarah.williams@example.com</td>
+                            <td>Premium</td>
+                            <td>Inactive</td>
+                            <td>Mar 5, 2025</td>
+                            <td>
+                                <button class="btn btn-small btn-secondary">Edit</button>
+                                <button class="btn btn-small btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Michael Brown</td>
+                            <td>michael.brown@example.com</td>
+                            <td>Free</td>
+                            <td>Active</td>
+                            <td>Mar 15, 2025</td>
+                            <td>
+                                <button class="btn btn-small btn-secondary">Edit</button>
+                                <button class="btn btn-small btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- User Form Modal (hidden by default) -->
+                <div id="user-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>Add/Edit User</h3>
+                        <form id="user-form">
+                            <div class="form-group">
+                                <label for="first-name">First Name:</label>
+                                <input type="text" id="first-name" name="first-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name:</label>
+                                <input type="text" id="last-name" name="last-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subscription">Subscription:</label>
+                                <select id="subscription" name="subscription" required>
+                                    <option value="free">Free</option>
+                                    <option value="premium">Premium</option>
+                                    <option value="premium_plus">Premium+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Status:</label>
+                                <select id="status" name="status" required>
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save User</button>
+                                <button type="button" class="btn btn-secondary" id="cancel-user">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Section -->
+            <section id="content" class="admin-section">
+                <h2>Manage Content</h2>
+                <div class="content-editor">
+                    <div class="content-nav">
+                        <h3>Pages</h3>
+                        <ul>
+                            <li class="active" data-page="home">Homepage</li>
+                            <li data-page="about">About Us</li>
+                            <li data-page="how-it-works">How It Works</li>
+                            <li data-page="pricing">Pricing</li>
+                            <li data-page="faq">FAQ</li>
+                            <li data-page="contact">Contact</li>
+                        </ul>
+                        <button class="btn btn-primary" id="add-page-btn">Add New Page</button>
+                    </div>
+                    <div class="content-edit-area">
+                        <h3>Edit Homepage</h3>
+                        <div class="form-group">
+                            <label for="page-title">Page Title:</label>
+                            <input type="text" id="page-title" name="page-title" value="Flight Deals - Save on Your Next Adventure">
+                        </div>
+                        <div class="form-group">
+                            <label for="hero-heading">Hero Heading:</label>
+                            <input type="text" id="hero-heading" name="hero-heading" value="Discover Amazing Flight Deals">
+                        </div>
+                        <div class="form-group">
+                            <label for="hero-subheading">Hero Subheading:</label>
+                            <input type="text" id="hero-subheading" name="hero-subheading" value="Get alerts for incredible savings on flights worldwide">
+                        </div>
+                        <div class="form-group">
+                            <label for="hero-image">Hero Image:</label>
+                            <div class="image-upload">
+                                <img src="images/hero-image.jpg" alt="Current hero image" class="preview-image">
+                                <input type="file" id="hero-image" name="hero-image">
+                                <button class="btn btn-secondary">Upload New Image</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="featured-section-title">Featured Section Title:</label>
+                            <input type="text" id="featured-section-title" name="featured-section-title" value="Featured Deals">
+                        </div>
+                        <div class="form-group">
+                            <label for="how-it-works-title">How It Works Section Title:</label>
+                            <input type="text" id="how-it-works-title" name="how-it-works-title" value="How It Works">
+                        </div>
+                        <div class="form-group">
+                            <label for="testimonials-title">Testimonials Section Title:</label>
+                            <input type="text" id="testimonials-title" name="testimonials-title" value="What Our Subscribers Say">
+                        </div>
+                        <div class="form-group">
+                            <label for="meta-description">Meta Description:</label>
+                            <textarea id="meta-description" name="meta-description" rows="3">Subscribe to our newsletter for the best flight deals. Save up to 60% on flights worldwide with our premium alerts.</textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-primary">Save Changes</button>
+                            <button class="btn btn-secondary">Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="admin-section">
+                <h2>System Settings</h2>
+                <div class="settings-container">
+                    <div class="settings-group">
+                        <h3>General Settings</h3>
+                        <div class="form-group">
+                            <label for="site-name">Site Name:</label>
+                            <input type="text" id="site-name" name="site-name" value="Flight Deals">
+                        </div>
+                        <div class="form-group">
+                            <label for="site-logo">Site Logo:</label>
+                            <div class="image-upload">
+                                <img src="images/logo.png" alt="Current logo" class="preview-image">
+                                <input type="file" id="site-logo" name="site-logo">
+                                <button class="btn btn-secondary">Upload New Logo</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Contact Email:</label>
+                            <input type="email" id="contact-email" name="contact-email" value="contact@flightdeals.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="timezone">Timezone:</label>
+                            <select id="timezone" name="timezone">
+                                <option value="UTC-8">Pacific Time (UTC-8)</option>
+                                <option value="UTC-7">Mountain Time (UTC-7)</option>
+                                <option value="UTC-6">Central Time (UTC-6)</option>
+                                <option value="UTC-5" selected>Eastern Time (UTC-5)</option>
+                                <option value="UTC+0">UTC</option>
+                                <option value="UTC+1">Central European Time (UTC+1)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="settings-group">
+                        <h3>Email Settings</h3>
+                        <div class="form-group">
+                            <label for="email-from">From Email:</label>
+                            <input type="email" id="email-from" name="email-from" value="deals@flightdeals.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="email-name">From Name:</label>
+                            <input type="text" id="email-name" name="email-name" value="Flight Deals Team">
+                        </div>
+                        <div class="form-group">
+                            <label for="newsletter-day">Weekly Newsletter Day:</label>
+                            <select id="newsletter-day" name="newsletter-day">
+                                <option value="1">Monday</option>
+                                <option value="2">Tuesday</option>
+                                <option value="3" selected>Wednesday</option>
+                                <option value="4">Thursday</option>
+                                <option value="5">Friday</option>
+                                <option value="6">Saturday</option>
+                                <option value="0">Sunday</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="newsletter-time">Weekly Newsletter Time:</label>
+                            <input type="time" id="newsletter-time" name="newsletter-time" value="09:00">
+                        </div>
+                    </div>
+
+                    <div class="settings-group">
+                        <h3>Subscription Settings</h3>
+                        <div class="form-group">
+                            <label for="free-plan-name">Free Plan Name:</label>
+                            <input type="text" id="free-plan-name" name="free-plan-name" value="Free">
+                        </div>
+                        <div class="form-group">
+                            <label for="premium-plan-name">Premium Plan Name:</label>
+                            <input type="text" id="premium-plan-name" name="premium-plan-name" value="Premium">
+                        </div>
+                        <div class="form-group">
+                            <label for="premium-plus-plan-name">Premium+ Plan Name:</label>
+                            <input type="text" id="premium-plus-plan-name" name="premium-plus-plan-name" value="Premium+">
+                        </div>
+                        <div class="form-group">
+                            <label for="premium-price">Premium Price ($):</label>
+                            <input type="number" id="premium-price" name="premium-price" value="9.99" min="0" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="premium-plus-price">Premium+ Price ($):</label>
+                            <input type="number" id="premium-plus-price" name="premium-plus-price" value="19.99" min="0" step="0.01">
+                        </div>
+                    </div>
+
+                    <div class="settings-group">
+                        <h3>API Settings</h3>
+                        <div class="form-group">
+                            <label for="stripe-key">Stripe API Key:</label>
+                            <input type="password" id="stripe-key" name="stripe-key" value="sk_test_*****************">
+                            <button class="btn btn-small btn-secondary">Show</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="sendgrid-key">SendGrid API Key:</label>
+                            <input type="password" id="sendgrid-key" name="sendgrid-key" value="SG.*****************">
+                            <button class="btn btn-small btn-secondary">Show</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="google-analytics">Google Analytics ID:</label>
+                            <input type="text" id="google-analytics" name="google-analytics" value="UA-123456789-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions settings-actions">
+                    <button class="btn btn-primary">Save All Settings</button>
+                    <button class="btn btn-secondary">Reset to Defaults</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Flight Deals Admin Dashboard. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

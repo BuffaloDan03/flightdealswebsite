@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyDeal - User Preferences</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">SkyDeal</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#deals">Deals</a>
+                <a href="index.html#destinations">Destinations</a>
+                <a href="index.html#how-it-works">How It Works</a>
+            </div>
+            <div class="nav-actions">
+                <a href="index.html#pricing" class="nav-link">Pricing</a>
+                <a href="preferences.html" class="btn btn-primary active">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="preferences-hero">
+        <div class="container">
+            <h1>Customize Your Flight Deal Preferences</h1>
+            <p>Tell us what you're looking for, and we'll send you personalized flight deals.</p>
+        </div>
+    </section>
+
+    <section class="preferences-form">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-progress">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Account</div>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Airports</div>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Airlines</div>
+                    </div>
+                    <div class="progress-step" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Travel Class</div>
+                    </div>
+                    <div class="progress-step" data-step="5">
+                        <div class="step-number">5</div>
+                        <div class="step-label">Plan</div>
+                    </div>
+                </div>
+
+                <form id="preferences-form">
+                    <!-- Step 1: Account Information -->
+                    <div class="form-step" data-step="1">
+                        <h2>Create Your Account</h2>
+                        <div class="form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" id="fullname" name="fullname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                            <p class="form-hint">Must be at least 8 characters long</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" id="confirm-password" name="confirm-password" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-primary next-step">Continue to Airports</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Airport Preferences -->
+                    <div class="form-step hidden" data-step="2">
+                        <h2>Select Your Airports</h2>
+                        
+                        <div class="airport-section">
+                            <h3>Origin Airports</h3>
+                            <p>Select the airports you want to fly from</p>
+                            
+                            <div class="airport-search">
+                                <input type="text" placeholder="Search airports by city or code" id="origin-search">
+                                <button type="button" class="btn btn-outline btn-small">Search</button>
+                            </div>
+                            
+                            <div class="airport-selection">
+                                <h4>Popular Domestic Airports</h4>
+                                <div class="airport-grid">
+                                    <div class="airport-item">
+                                        <input type="checkbox" id="airport-jfk" name="origin_airports" value="JFK">
+                                        <label for="airport-jfk">
+                                            <div class="airport-badge">
+                                                <img src="images/airlines/delta.png" alt="Delta" class="airline-icon">
+                                                <span class="airport-code">JFK</span>
+                                            </div>
+                                            <span class="airport-name">New York (JFK)</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="airport-item">
+                                        <input type="checkbox" id="airport-lax" name="origin_airports" value="LAX">
+                                        <label for="airport-lax">
+                                            <div class="airport-badge">
+                                                <img src="images/airlines/american.png" alt="American" class="airline-icon">
+                                                <span class="airport-code">LAX</span>
+                                            </div>
+                                            <span class="airport-name">Los Angeles (LAX)</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="airport-item">
+                                        <input type="checkbox" id="airport-ord" name="origin_airports" value="ORD">
+                                        <label for="airport-ord">
+                                            <div class="airport-badge">
+                                                <img src="images/airlines/united.png" alt="United" class="airline-icon">
+                                                <span class="airport-code">ORD</span>
+                                            </div>
+                                            <span class="airport-name">Chicago (ORD)</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="airport-item">
+                                        <input type="checkbox" id="airport-sfo" name="origin_airports" value="SFO">
+                                        <label for="airport-sfo">
+                                            <div class="airport-badge">
+                                                <img src="images/airlines/united.png" alt="United" class="airline-icon">
+                                                <span class="airport-code">SFO</span>
+                                            </div>
+                                            <span class="airport-name">San Francisco (SFO)</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="airport-item">
+                                        <input type="checkbox" id="airport-mia" name="origin_airports" value="MIA">
+                                        <label for="airport-mia">
+                                            <div class="airport-badge">
+                                                <img src="images/airlines/american.png" alt="American" class="airline-icon">
+                                                <span class="airport-code">MIA</span>
+                                            </div>
+                                            <span class="airport-name">Miami (MIA)</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="airport-item">
+                                        <input type="checkbox" id="airport-atl" name="origin_airports" value="ATL">
+                                        <label for="airport-atl">
+                                            <div class="airport-badge">
+                                                <img src="images/airlines/delta.png" alt="Delta" class="airline-icon">
+                                                <span class="airport-code">ATL</span>
+                                            </div>
+                                            <span class="airport-name">Atlanta (ATL)</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <h4>International Airports</h4>
+                                <div class="airport-grid">
+                                    <div class="airport-item">
+                                        <input type="checkbox" id="airport-lhr" name="origin_airports" value="LHR">
+                                        <label for="airport-lhr">
+                                            <div class="airport-badge">
+                                                <img src="images/airlines/british-airways.png" alt="British Airways" class="airline-icon">
+                                                <span class="airport-code">LHR</span>
+                                            </div>
+                                            <span class="airport-name">London (LHR)</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="airport-item">
+                                        <input type="checkbox" id="airport-cdg" name="origin_airports" value="CDG">
+                                        <label for="airport-cdg">
+                                            <div class="airport-badge">
+                                                <img src="images/airlines/air-france.png" alt="Air France" class="airline-icon">
+                                                <span class="airport-code">CDG</span>
+                                            </div>
+                                            <span class="airport-name">Paris (CDG)</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="airport-item">
+                                        <input type="checkbox" id="airport-nrt" name="origin_airports" value="NRT">
+                                        <label for="airport-nrt">
+                                            <div class="airport-badge">
+                                                <img src="images/airlines/ana.png" alt="ANA" class="airline-icon">
+                                                <span class="airport-code">NRT</span>
+                                            </div>
+                                            <span class="airport-name">Tokyo (NRT)</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="airport-item">
+                                        <input type="checkbox" id="airport-hkg" name="origin_airports" value="HKG">
+                                        <label for="airport-hkg">
+                                            <div class="airport-badge">
+                                                <img src="images/airlines/cathay-pacific.png" alt="Cathay Pacific" class="airline-icon">
+                                                <span class="airport-code">HKG</span>
+                                            </div>
+                                            <span class="airport-name">Hong Kong (HKG)</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="airport-section">
+                            <h3>Destination Preferences</h3>
+                            <p>Select specific destinations or leave blank to receive deals for all destinations</p>
+                            
+                            <div class="destination-options">
+                                <div class="form-group">
+                                    <label>
+                                        <input type="radio" name="destination_preference" value="all" checked>
+                                        All Destinations (Recommended)
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="radio" name="destination_preference" value="specific">
+                                        Specific Destinations
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="specific-destinations hidden">
+                                <div class="airport-search">
+                                    <input type="text" placeholder="Search destinations by city or airport code" id="destination-search">
+                                    <button type="button" class="btn btn-outline btn-small">Search</button>
+                                </div>
+                                
+                                <h4>Featured Destinations</h4>
+                                <div class="destination-grid">
+                                    <div class="destination-item">
+                                        <input type="checkbox" id="dest-paris" name="destinations" value="CDG">
+                                        <label for="dest-paris">
+                                            <img src="images/destinations/paris-small.jpg" alt="Paris">
+                                            <span>Paris</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="destination-item">
+                                        <input type="checkbox" id="dest-tokyo" name="destinations" value="HND,NRT">
+                                        <label for="dest-tokyo">
+                                            <img src="images/destinations/tokyo-small.jpg" alt="Tokyo">
+                                            <span>Tokyo</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="destination-item">
+                                        <input type="checkbox" id="dest-bali" name="destinations" value="DPS">
+                                        <label for="dest-bali">
+                                            <img src="images/destinations/bali-small.jpg" alt="Bali">
+                                            <span>Bali</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="destination-item">
+                                        <input type="checkbox" id="dest-rome" name="destinations" value="FCO">
+                                        <label for="dest-rome">
+                                            <img src="images/destinations/rome-small.jpg" alt="Rome">
+                                            <span>Rome</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="destination-item">
+                                        <input type="checkbox" id="dest-sydney" name="destinations" value="SYD">
+                                        <label for="dest-sydney">
+                                            <img src="images/destinations/sydney-small.jpg" alt="Sydney">
+                                            <span>Sydney</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="destination-item">
+                                        <input type="checkbox" id="dest-nyc" name="destinations" value="JFK,LGA,EWR">
+                                        <label for="dest-nyc">
+                                            <img src="images/destinations/nyc-small.jpg" alt="New York">
+                                            <span>New York</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline prev-step">Back</button>
+                            <button type="button" class="btn btn-primary next-step">Continue to Airlines</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Airline Preferences -->
+                    <div class="form-step hidden" data-step="3">
+                        <h2>Select Your Airline Preferences</h2>
+                        
+                        <div class="airline-options">
+                            <div class="form-group">
+                                <label>
+                                    <input type="radio" name="airline_preference" value="all" checked>
+                                    All Airlines (Recommended)
+                                </label>
+                                <p class="form-hint">Get the best deals regardless of airline</p>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="radio" name="airline_preference" value="specific">
+                                    Specific Airlines
+                                </label>
+                                <p class="form-hint">Only get deals from airlines you select</p>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="radio" name="airline_preference" value="exclude">
+                                    Exclude Airlines
+                                </label>
+                                <p class="form-hint">Get deals from all airlines except ones you select</p>
+                            </div>
+                        </div>
+                        
+                        <div class="specific-airlines hidden">
+                            <div class="airline-search">
+                                <input type="text" placeholder="Search airlines" id="airline-search">
+                            </div>
+                            
+                            <h4>Major Airlines</h4>
+                            <div class="airline-grid">
+                                <div class="airline-item">
+                                    <input type="checkbox" id="airline-delta" name="airlines" value="DL">
+                                    <label for="airline-delta">
+                                        <img src="images/airlines/delta.png" alt="Delta Airlines">
+                                        <span>Delta Airlines</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="airline-item">
+                                    <input type="checkbox" id="airline-united" name="airlines" value="UA">
+                                    <label for="airline-united">
+                                        <img src="images/airlines/united.png" alt="United Airlines">
+                                        <span>United Airlines</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="airline-item">
+                                    <input type="checkbox" id="airline-american" name="airlines" value="AA">
+                                    <label for="airline-american">
+                                        <img src="images/airlines/american.png" alt="American Airlines">
+                                        <span>American Airlines</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="airline-item">
+                                    <input type="checkbox" id="airline-southwest" name="airlines" value="WN">
+                                    <label for="airline-southwest">
+                                        <img src="images/airlines/southwest.png" alt="Southwest Airlines">
+                                        <span>Southwest Airlines</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="airline-item">
+                                    <input type="checkbox" id="airline-jetblue" name="airlines" value="B6">
+                                    <label for="airline-jetblue">
+                                        <img src="images/airlines/jetblue.png" alt="JetBlue">
+                                        <span>JetBlue</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="airline-item">
+                                    <input type="checkbox" id="airline-alaska" name="airlines" value="AS">
+                                    <label for="airline-alaska">
+                                        <img src="images/airlines/alaska.png" alt="Alaska Airlines">
+                                        <span>Alaska Airlines</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <h4>International Airlines</h4>
+                            <div class="airline-grid">
+                                <div class="airline-item">
+                                    <input type="checkbox" id="airline-lufthansa" name="airlines" value="LH">
+                                    <label for="airline-lufthansa">
+                                        <img src="images/airlines/lufthansa.png" alt="Lufthansa">
+                                        <span>Lufthansa</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="airline-item">
+                                    <input type="checkbox" id="airline-british" name="airlines" value="BA">
+                                    <label for="airline-british">
+                                        <img src="images/airlines/british-airways.png" alt="British Airways">
+                                        <span>British Airways</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="airline-item">
+                                    <input type="checkbox" id="airline-airfrance" name="airlines" value="AF">
+                                    <label for="airline-airfrance">
+                                        <img src="images/airlines/air-france.png" alt="Air France">
+                                        <span>Air France</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="airline-item">
+                                    <input type="checkbox" id="airline-emirates" name="airlines" value="EK">
+                                    <label for="airline-emirates">
+                                        <img src="images/airlines/emirates.png" alt="Emirates">
+                                        <span>Emirates</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="airline-item">
+                                    <input type="checkbox" id="airline-singapore" name="airlines" value="SQ">
+                                    <label for="airline-singapore">
+                                        <img src="images/airlines/singapore.png" alt="Singapore Airlines">
+                                        <span>Singapore Airlines</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="airline-item">
+                                    <input type="checkbox" id="airline-qatar" name="airlines" value="QR">
+                                    <label for="airline-qatar">
+                                        <img src="images/airlines/qatar.png" alt="Qatar Airways">
+                                        <span>Qatar Airways</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline prev-step">Back</button>
+                            <button type="button" class="btn btn-primary next-step">Continue to Travel Class</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Travel Class Preferences -->
+                    <div class="form-step hidden" data-step="4">
+                        <h2>Select Your Travel Class Preferences</h2>
+                        
+                        <div class="travel-class-options">
+                            <div class="travel-class-card">
+                                <input type="radio" id="economy-only" name="travel_class" value="economy" checked>
+                                <label for="economy-only">
+                                    <div class="travel-class-header">
+                                        <h3>Fly for Cheap</h3>
+                                        <img src="images/economy-seat.svg" alt="Economy Class">
+                                    </div>
+                                    <div class="travel-class-content">
+                                        <p>Get deals for Economy Class only</p>
+                                        <ul>
+                                            <li>Best for budget travelers</li>
+                                            <li>Maximum savings on airfare</li>
+                                            <li>Widest selection of deals</li>
+                                        </ul>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="travel-class-card premium-option">
+                                <div class="premium-badge">Premium+ Only</div>
+                                <input type="radio" id="premium-classes" name="travel_class" value="premium">
+                                <label for="premium-classes">
+                                    <div class="travel-class-header">
+                                        <h3>Fly in Style</h3>
+                                        <img src="images/business-seat.svg" alt="Business Class">
+                                    </div>
+                                    <div class="travel-class-content">
+                                        <p>Get deals for Premium cabins</p>
+                                        <div class="premium-class-options">
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" name="premium_economy" value="1" checked disabled>
+                                                Premium Economy
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" name="business" value="1" checked disabled>
+                                                Business Class
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" name="first" value="1" checked disabled>
+                                                First Class
+                                            </label>
+                                        </div>
+                                        <p class="premium-note">Requires Premium+ subscription</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="deal-quality-preferences">
+                            <h3>Deal Quality Preferences</h3>
+                            <p>Set your minimum discount threshold for deal alerts</p>
+                            
+                            <div class="discount-slider">
+                                <label for="min-discount">Minimum Discount: <span id="discount-value">20%</span></label>
+                                <input type="range" id="min-discount" name="min_discount" min="20" max="50" value="20" step="5">
+                                <div class="discount-labels">
+                                    <span>20%</span>
+                                    <span>30%</span>
+                                    <span>40%</span>
+                                    <span>50%+</span>
+                                </div>
+                                <div class="discount-categories">
+                                    <span class="discount-good">Good</span>
+                                    <span class="discount-great">Great</span>
+                                    <span class="discount-amazing">Amazing</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline prev-step">Back</button>
+                            <button type="button" class="btn btn-primary next-step">Continue to Plan Selection</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Plan Selection -->
+                    <div class="form-step hidden" data-step="5">
+                        <h2>Choose Your Subscription Plan</h2>
+                        
+                        <div class="plan-selection">
+                            <div class="plan-card">
+                                <input type="radio" id="plan-free" name="subscription_plan" value="free" checked>
+                                <label for="plan-free">
+                                    <div class="plan-header">
+                                        <h3>Free</h3>
+                                        <div class="plan-price">
+                                            <span class="price">$0</span>
+                                            <span class="period">/month</span>
+                                        </div>
+                                    </div>
+                                    <div class="plan-features">
+                                        <ul>
+                                            <li>Weekly newsletter with popular deals</li>
+                                            <li>Limited destination coverage</li>
+                                            <li>Economy class deals only</li>
+                                            <li>No personalization</li>
+                                            <li>Basic email support</li>
+                                        </ul>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="plan-card featured">
+                                <div class="plan-badge">Most Popular</div>
+                                <input type="radio" id="plan-premium" name="subscription_plan" value="premium">
+                                <label for="plan-premium">
+                                    <div class="plan-header">
+                                        <h3>Premium</h3>
+                                        <div class="plan-price">
+                                            <span class="price">$4.99</span>
+                                            <span class="period">/month</span>
+                                        </div>
+                                    </div>
+                                    <div class="plan-features">
+                                        <ul>
+                                            <li>Personalized deal alerts</li>
+                                            <li>Choose your departure airports</li>
+                                            <li>Select preferred airlines</li>
+                                            <li>Economy class deals only</li>
+                                            <li>Daily email digests</li>
+                                            <li>Priority email support</li>
+                                        </ul>
+                                    </div>
+                                    <div class="plan-trial">
+                                        <p>Includes 7-day free trial</p>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="plan-card">
+                                <input type="radio" id="plan-premium-plus" name="subscription_plan" value="premium_plus">
+                                <label for="plan-premium-plus">
+                                    <div class="plan-header">
+                                        <h3>Premium+</h3>
+                                        <div class="plan-price">
+                                            <span class="price">$9.99</span>
+                                            <span class="period">/month</span>
+                                        </div>
+                                    </div>
+                                    <div class="plan-features">
+                                        <ul>
+                                            <li>All Premium features</li>
+                                            <li>Business & First Class deals</li>
+                                            <li>Real-time notifications</li>
+                                            <li>Unlimited destination tracking</li>
+                                            <li>Exclusive member-only deals</li>
+                                            <li>24/7 priority support</li>
+                                        </ul>
+                                    </div>
+                                    <div class="plan-trial">
+                                        <p>Includes 7-day free trial</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="notification-preferences">
+                            <h3>Notification Preferences</h3>
+                            
+                            <div class="form-group">
+                                <label for="notification-frequency">How often would you like to receive deal alerts?</label>
+                                <select id="notification-frequency" name="notification_frequency">
+                                    <option value="real-time">Real-time (as deals are found)</option>
+                                    <option value="daily" selected>Daily digest</option>
+                                    <option value="weekly">Weekly roundup</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group terms-agreement">
+                            <label>
+                                <input type="checkbox" name="terms_agreement" required>
+                                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline prev-step">Back</button>
+                            <button type="submit" class="btn btn-primary">Complete Sign Up</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>SkyDeal</h3>
+                    <p>Premium Flight Deals Newsletter</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">How It Works</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#">Travel Guides</a></li>
+                            <li><a href="#">Destinations</a></li>
+                            <li><a href="#">Travel Tips</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Support</a></li>
+                            <li class="social-links">
+                                <a href="#"><img src="images/icon-facebook.svg" alt="Facebook"></a>
+                                <a href="#"><img src="images/icon-twitter.svg" alt="Twitter"></a>
+                                <a href="#"><img src="images/icon-instagram.svg" alt="Instagram"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 SkyDeal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/preferences.js"></script>
+</body>
+</html>

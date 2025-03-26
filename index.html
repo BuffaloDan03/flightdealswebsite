@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyDeal - Premium Flight Deals Newsletter</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">SkyDeal</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="#deals">Deals</a>
+                <a href="#destinations">Destinations</a>
+                <a href="#how-it-works">How It Works</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="preferences.html" class="btn btn-primary">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Never Miss Amazing <span class="highlight">Flight Deals</span> Again</h1>
+            <p>Get personalized alerts for flights at least 20% cheaper than regular prices, tailored to your preferences.</p>
+            <div class="hero-cta">
+                <a href="#pricing" class="btn btn-primary">Start Free Trial</a>
+                <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="deals" class="deals">
+        <div class="container">
+            <h2 class="section-title">Featured Flight Deals</h2>
+            <p class="section-subtitle">Our algorithm finds flights that are at least 20% cheaper than regular prices.</p>
+            
+            <div class="deal-cards">
+                <div class="deal-card">
+                    <div class="deal-image">
+                        <img src="images/new-york.jpg" alt="New York City">
+                        <div class="deal-badge">33% OFF</div>
+                    </div>
+                    <div class="deal-content">
+                        <div class="deal-route">
+                            <span class="deal-origin">LAX</span>
+                            <span class="deal-arrow">→</span>
+                            <span class="deal-destination">JFK</span>
+                        </div>
+                        <h3 class="deal-title">New York City</h3>
+                        <div class="deal-details">
+                            <div class="deal-price">
+                                <span class="deal-price-old">$450</span>
+                                <span class="deal-price-new">$299</span>
+                            </div>
+                            <div class="deal-dates">May 15 - May 22</div>
+                        </div>
+                        <div class="deal-airline">
+                            <img src="images/delta-logo.png" alt="Delta Airlines" class="airline-logo">
+                            <span>Delta Airlines</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Deal</a>
+                    </div>
+                </div>
+                
+                <div class="deal-card">
+                    <div class="deal-image">
+                        <img src="images/paris.jpg" alt="Paris">
+                        <div class="deal-badge">48% OFF</div>
+                    </div>
+                    <div class="deal-content">
+                        <div class="deal-route">
+                            <span class="deal-origin">SFO</span>
+                            <span class="deal-arrow">→</span>
+                            <span class="deal-destination">CDG</span>
+                        </div>
+                        <h3 class="deal-title">Paris</h3>
+                        <div class="deal-details">
+                            <div class="deal-price">
+                                <span class="deal-price-old">$950</span>
+                                <span class="deal-price-new">$499</span>
+                            </div>
+                            <div class="deal-dates">Jun 10 - Jun 24</div>
+                        </div>
+                        <div class="deal-airline">
+                            <img src="images/air-france-logo.png" alt="Air France" class="airline-logo">
+                            <span>Air France</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Deal</a>
+                    </div>
+                </div>
+                
+                <div class="deal-card">
+                    <div class="deal-image">
+                        <img src="images/tokyo.jpg" alt="Tokyo">
+                        <div class="deal-badge">25% OFF</div>
+                    </div>
+                    <div class="deal-content">
+                        <div class="deal-route">
+                            <span class="deal-origin">SEA</span>
+                            <span class="deal-arrow">→</span>
+                            <span class="deal-destination">HND</span>
+                        </div>
+                        <h3 class="deal-title">Tokyo</h3>
+                        <div class="deal-details">
+                            <div class="deal-price">
+                                <span class="deal-price-old">$1200</span>
+                                <span class="deal-price-new">$899</span>
+                            </div>
+                            <div class="deal-dates">Sep 5 - Sep 19</div>
+                        </div>
+                        <div class="deal-airline">
+                            <img src="images/ana-logo.png" alt="ANA" class="airline-logo">
+                            <span>All Nippon Airways</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Deal</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="deals-cta">
+                <a href="preferences.html" class="btn btn-primary">Get Personalized Deals</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="destinations" class="destinations">
+        <div class="container">
+            <h2 class="section-title">Featured Destinations</h2>
+            <p class="section-subtitle">Discover amazing places with our curated destination guides and exclusive deals.</p>
+            
+            <div class="destination-cards">
+                <div class="destination-card">
+                    <img src="images/bali.jpg" alt="Bali">
+                    <div class="destination-content">
+                        <h3>Bali, Indonesia</h3>
+                        <p>Tropical paradise with stunning beaches, lush rice terraces, and vibrant culture.</p>
+                        <div class="destination-meta">
+                            <span class="destination-price">Deals from $799</span>
+                            <a href="#" class="destination-track">Track This Destination</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <img src="images/barcelona.jpg" alt="Barcelona">
+                    <div class="destination-content">
+                        <h3>Barcelona, Spain</h3>
+                        <p>Architectural wonders, Mediterranean beaches, and world-class cuisine.</p>
+                        <div class="destination-meta">
+                            <span class="destination-price">Deals from $599</span>
+                            <a href="#" class="destination-track">Track This Destination</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <img src="images/cape-town.jpg" alt="Cape Town">
+                    <div class="destination-content">
+                        <h3>Cape Town, South Africa</h3>
+                        <p>Dramatic scenery, diverse wildlife, and rich cultural experiences.</p>
+                        <div class="destination-meta">
+                            <span class="destination-price">Deals from $899</span>
+                            <a href="#" class="destination-track">Track This Destination</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How SkyDeal Works</h2>
+            <p class="section-subtitle">We find the best flight deals so you don't have to.</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <img src="images/icon-search.svg" alt="Search Icon">
+                    </div>
+                    <h3>We Search</h3>
+                    <p>Our algorithms continuously scan thousands of flights to find deals at least 20% below regular prices.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <img src="images/icon-customize.svg" alt="Customize Icon">
+                    </div>
+                    <h3>You Customize</h3>
+                    <p>Tell us your preferred airports, airlines, and travel class to receive personalized deals.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <img src="images/icon-alert.svg" alt="Alert Icon">
+                    </div>
+                    <h3>We Alert You</h3>
+                    <p>Receive instant notifications when we find deals matching your preferences.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <img src="images/icon-book.svg" alt="Book Icon">
+                    </div>
+                    <h3>You Save</h3>
+                    <p>Book directly with airlines or travel agencies and save hundreds on your flights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <p class="section-subtitle">Find the perfect plan for your travel needs.</p>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Free</h3>
+                        <div class="pricing-price">
+                            <span class="price">$0</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>Weekly newsletter with popular deals</li>
+                            <li>Limited destination coverage</li>
+                            <li>Economy class deals only</li>
+                            <li>No personalization</li>
+                            <li>Basic email support</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-cta">
+                        <a href="preferences.html" class="btn btn-outline">Sign Up Free</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Premium</h3>
+                        <div class="pricing-price">
+                            <span class="price">$4.99</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>Personalized deal alerts</li>
+                            <li>Choose your departure airports</li>
+                            <li>Select preferred airlines</li>
+                            <li>Economy class deals only</li>
+                            <li>Daily email digests</li>
+                            <li>Priority email support</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-cta">
+                        <a href="preferences.html" class="btn btn-primary">Start 7-Day Trial</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Premium+</h3>
+                        <div class="pricing-price">
+                            <span class="price">$9.99</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>All Premium features</li>
+                            <li>Business & First Class deals</li>
+                            <li>Real-time notifications</li>
+                            <li>Unlimited destination tracking</li>
+                            <li>Exclusive member-only deals</li>
+                            <li>24/7 priority support</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-cta">
+                        <a href="preferences.html" class="btn btn-outline">Start 7-Day Trial</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Members Say</h2>
+            
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I saved over $600 on my flight to Tokyo thanks to SkyDeal's alert. The deal was gone within hours, but I got it just in time!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-1.jpg" alt="Sarah M.">
+                        <div class="author-info">
+                            <h4>Sarah M.</h4>
+                            <p>Premium Member</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"As a frequent business traveler, the Premium+ plan has been a game-changer. I've been flying business class for almost the same price I used to pay for economy."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-2.jpg" alt="Michael T.">
+                        <div class="author-info">
+                            <h4>Michael T.</h4>
+                            <p>Premium+ Member</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The customization options are fantastic. I only get alerts for the airlines I prefer and from my home airport. No more irrelevant deals!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-3.jpg" alt="Jennifer L.">
+                        <div class="author-info">
+                            <h4>Jennifer L.</h4>
+                            <p>Premium Member</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Never Miss a Flight Deal Again?</h2>
+            <p>Join thousands of smart travelers who save hundreds on their flights.</p>
+            <a href="preferences.html" class="btn btn-primary btn-large">Get Started Today</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>SkyDeal</h3>
+                    <p>Premium Flight Deals Newsletter</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">How It Works</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#">Travel Guides</a></li>
+                            <li><a href="#">Destinations</a></li>
+                            <li><a href="#">Travel Tips</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Support</a></li>
+                            <li class="social-links">
+                                <a href="#"><img src="images/icon-facebook.svg" alt="Facebook"></a>
+                                <a href="#"><img src="images/icon-twitter.svg" alt="Twitter"></a>
+                                <a href="#"><img src="images/icon-instagram.svg" alt="Instagram"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 SkyDeal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

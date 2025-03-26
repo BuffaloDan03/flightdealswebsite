@@ -1,170 +1,91 @@
-# Flight Deals SaaS Backend
+# Flight Deals SaaS - README
 
-This is the backend API for the Flight Deals SaaS newsletter service. It provides functionality for user management, flight deal scraping, deal detection, and newsletter distribution.
+This package contains a complete implementation of a Flight Deals Newsletter SaaS website, similar to Scott's Cheap Flights (now Going). The system allows users to receive personalized flight deal alerts for flights that are at least 20% cheaper than regular prices.
 
 ## Features
 
-- User authentication and management
-- Subscription management with Stripe integration
-- Flight scraping from multiple sources
-- Deal detection algorithm
-- Newsletter distribution system
-- Premium features for paid subscribers
+- **User Authentication**: Complete registration and login system
+- **Subscription Tiers**: Free, Premium ($4.99/month), and Premium+ ($9.99/month) plans
+- **Personalized Preferences**: 
+  - Origin airport selection
+  - Destination tracking
+  - Airline preferences
+  - Travel class options (Economy vs. Premium cabins)
+- **Deal Quality Filtering**: Set minimum discount thresholds
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
 
-## Tech Stack
+## Package Contents
 
-- Node.js
-- Express.js
-- TypeScript
-- PostgreSQL
-- Prisma ORM
-- JWT Authentication
-- Stripe for payments
-- SendGrid for emails
-- Jest for testing
-- Docker for deployment
+### Frontend Files
+- HTML pages (index.html, preferences.html)
+- CSS styles (css/styles.css)
+- JavaScript functionality (js/main.js, js/preferences.js)
+- Image directories (images/airlines, images/destinations, images/icons)
+
+### Documentation
+- Frontend documentation (docs/frontend.md)
+- Backend implementation guide (docs/backend.md)
+
+## Deployment Instructions
+
+### Frontend Deployment
+
+1. Upload all files to your web hosting service, maintaining the directory structure
+2. Ensure the web server is configured to serve index.html as the default page
+3. Test all functionality after deployment
+
+### Backend Development
+
+The backend implementation guide (docs/backend.md) provides comprehensive instructions for developing:
+
+1. User authentication system
+2. Database schema and models
+3. Flight deals API endpoints
+4. Subscription management system
+5. Email notification system
+
+## Technology Stack
+
+### Frontend
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+
+### Recommended Backend
+- Node.js with Express
+- PostgreSQL database
+- Redis for caching
+- TypeScript for type safety
+- Stripe for payment processing
+- SendGrid/Mailchimp for email delivery
 
 ## Getting Started
 
-### Prerequisites
+1. Review the frontend documentation to understand the structure and functionality
+2. Deploy the frontend files to your web hosting service
+3. Follow the backend implementation guide to develop the server-side components
+4. Connect the frontend to your backend API
+5. Test the complete system
 
-- Node.js (v16+)
-- npm or yarn
-- PostgreSQL
-- Stripe account
-- SendGrid account
+## Customization
 
-### Installation
+You can customize the following aspects of the system:
 
-1. Clone the repository
-2. Install dependencies:
-   ```
-   npm install
-   ```
-3. Create a `.env` file based on `.env.example`:
-   ```
-   cp .env.example .env
-   ```
-4. Update the `.env` file with your configuration
-5. Run database migrations:
-   ```
-   npx prisma migrate dev
-   ```
-6. Seed the database:
-   ```
-   npm run seed
-   ```
-7. Start the development server:
-   ```
-   npm run dev
-   ```
+- Branding (logo, colors, typography)
+- Pricing plans
+- Featured destinations
+- Deal quality thresholds
+- Email templates
 
-## API Endpoints
+## Support
 
-### Authentication
-
-- `POST /api/auth/register` - Register a new user
-- `POST /api/auth/login` - Login and get JWT token
-- `POST /api/auth/verify-email/:token` - Verify email address
-- `POST /api/auth/forgot-password` - Request password reset
-- `POST /api/auth/reset-password/:token` - Reset password
-
-### Users
-
-- `GET /api/users/profile` - Get user profile
-- `PUT /api/users/profile` - Update user profile
-- `GET /api/users/preferences` - Get user preferences
-- `PUT /api/users/preferences` - Update user preferences
-
-### Subscriptions
-
-- `GET /api/subscriptions/plans` - Get subscription plans
-- `GET /api/subscriptions/current` - Get current subscription
-- `POST /api/subscriptions/create-checkout-session` - Create Stripe checkout session
-- `POST /api/subscriptions/webhook` - Handle Stripe webhook events
-- `POST /api/subscriptions/cancel` - Cancel subscription
-- `GET /api/subscriptions/check-access/:feature` - Check feature access
-
-### Destinations
-
-- `GET /api/destinations/tracked` - Get user's tracked destinations
-- `POST /api/destinations/tracked` - Add destination to tracked destinations (Premium)
-- `DELETE /api/destinations/tracked/:id` - Remove destination from tracked destinations
-- `GET /api/destinations/suggestions` - Get premium destination suggestions (Premium)
-
-### Airlines
-
-- `GET /api/airlines` - Get all airlines
-- `GET /api/airlines/preferences` - Get user's airline preferences
-- `PUT /api/airlines/preferences` - Update user's airline preferences (Premium)
-- `GET /api/airlines/cabin-classes` - Get premium cabin class options
-- `PUT /api/airlines/cabin-classes` - Update user's cabin class preferences (Premium/Premium+)
-
-### Deals
-
-- `GET /api/deals/featured` - Get featured deals
-- `GET /api/deals/search` - Search deals
-- `GET /api/deals/:id` - Get deal by ID
-- `GET /api/deals/premium` - Get premium deals (Premium)
-
-### Notifications
-
-- `GET /api/notifications` - Get user notifications
-- `PUT /api/notifications/:id/read` - Mark notification as read
-- `GET /api/notifications/track/open/:id` - Track email open
-- `GET /api/notifications/track/click/:id` - Track email click
-- `POST /api/notifications/process` - Process pending notifications (Admin)
-- `POST /api/notifications/weekly-newsletter` - Send weekly newsletter (Admin)
-
-### Scraper
-
-- `POST /api/scraper/route` - Trigger scraping for a route (Admin)
-- `POST /api/scraper/popular` - Trigger scraping for popular routes (Admin)
-
-## Premium Features
-
-The following features are available only to premium subscribers:
-
-- Tracking specific destinations
-- Filtering by preferred airlines
-- Premium Economy cabin class
-
-The following features are available only to premium+ subscribers:
-
-- Business and First class deals
-- Priority notifications
-- Personalized deal recommendations
-
-## Deployment
-
-### Using Docker
-
-1. Build and run using Docker Compose:
-   ```
-   docker-compose up -d
-   ```
-
-2. The API will be available at http://localhost:3001
-
-### Manual Deployment
-
-1. Build the TypeScript code:
-   ```
-   npm run build
-   ```
-
-2. Start the production server:
-   ```
-   npm run start:prod
-   ```
-
-## Testing
-
-Run the test suite:
-```
-npm test
-```
+For questions or assistance with implementation, please contact:
+support@yourdomain.com
 
 ## License
 
-This project is proprietary and confidential.
+This code is provided for your personal use only. Redistribution or commercial use without permission is prohibited.
+
+---
+
+© 2025 YourCompany. All rights reserved.
